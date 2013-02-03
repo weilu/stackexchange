@@ -1,0 +1,21 @@
+<ul>
+  <% _.each(questions, function(question){ %>
+  <li>
+    <dl>
+      <% _.each(Object.keys(question), function(key){ %>
+      <dt><%= key %></dt>
+      <dd><%= question[key] %></dd>
+      <% }); %>
+    </dl>
+  </li>
+  <% }); %>
+</ul>
+<form class="question-filter" action="/users/<%= user_id %>/questions" method="GET">
+  <label for="type">Filter by Type:</label>
+  <select name="type">
+    <option value="" <%= type=='' ? "selected" : "" %>>All</option>
+    <option value="featured" <%= type=='featured' ? "selected" : "" %>>Featured</option>
+    <option value="unaccepted" <%= type=='unaccepted' ? "selected" : "" %>>Unaccepted</option>
+  </select>
+  <input type="submit" value="submit" />
+</form>

@@ -1,1 +1,1 @@
-module.exports = '<div id="index">\n  <form action="/users" method="GET">\n    <label for="id">User ID:</label>\n    <input name="id" />\n    <input type="submit" value="submit" />\n  </form>\n</div>\n';
+module.exports = '<form class="user-show" action="/users" method="GET">\n  <label for="id">User ID:</label>\n  <input name="id" />\n  <input type="submit" value="submit" />\n</form>\n';

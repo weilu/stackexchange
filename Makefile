@@ -1,13 +1,16 @@
 
 build: components index.js stackexchange.css templates
-	@component build --dev
+	@component build
 
-templates: templates/user_show.js templates/index.js
+templates: templates/index.js templates/user_show.js templates/user_questions.js
+
+templates/index.js: templates/index.html
+	component convert $<
 
 templates/user_show.js: templates/user_show.html
 	component convert $<
 
-templates/index.js: templates/index.html
+templates/user_questions.js: templates/user_questions.html
 	component convert $<
 
 components: component.json

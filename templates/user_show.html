@@ -1,8 +1,9 @@
-<div id="user_show">
-  <dl>
-    <% _.each(Object.keys(user), function(key){ %>
-      <dt><%= key %></dt>
-      <dd><%= user[key] %></dd>
-    <% }); %>
-  </dl>
-</div>
+<dl>
+  <% _.each(Object.keys(user), function(key){ %>
+    <dt><%= key %></dt>
+    <dd><%= user[key] %></dd>
+  <% }); %>
+</dl>
+
+<a rel="questions" href="<%= user.user_id %>/questions">Questions</a>
+<a rel="answers" href="<%= user.user_id %>/answers">Answers</a>

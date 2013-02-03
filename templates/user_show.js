@@ -1,1 +1,1 @@
-module.exports = '<div id="user_show">\n  <dl>\n    <% _.each(Object.keys(user), function(key){ %>\n      <dt><%= key %></dt>\n      <dd><%= user[key] %></dd>\n    <% }); %>\n  </dl>\n</div>\n';
+module.exports = '<dl>\n  <% _.each(Object.keys(user), function(key){ %>\n    <dt><%= key %></dt>\n    <dd><%= user[key] %></dd>\n  <% }); %>\n</dl>\n\n<a rel="questions" href="<%= user.user_id %>/questions">Questions</a>\n<a rel="answers" href="<%= user.user_id %>/answers">Answers</a>\n';

@@ -7,13 +7,15 @@
   "dependencies": {
     "visionmedia/page.js": "*",
     "pazguille/CORS": "*",
-    "component/underscore": "*"
+    "component/underscore": "*",
+    "component/querystring": "*"
   },
   "development": {},
   "license": "MIT",
   "scripts": [
     "index.js",
     "templates/index.js",
+    "templates/user_questions.js",
     "templates/user_show.js"
   ],
   "styles": [

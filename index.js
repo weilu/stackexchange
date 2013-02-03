@@ -4,13 +4,15 @@ module.exports = function(path){
   page();
 }
 
-var request = require('superagent');
+var request = require('cors');
 var page = require('page');
-var template = require('./template');
+var _ = require('underscore');
+var indexTemplate = require('./templates/index');
+var userShowTemplate = require('./templates/user_show');
 
 page('/', index);
-page('/users*', user_show);
-page('/questions*', user_questions);
+page('/users/:id', user_show);
+page('/users/:id/questions', user_questions);
 page('*', not_found);
 
 function not_found(req) {
@@ -18,19 +20,27 @@ function not_found(req) {
 }
 
 function index(req) {
-  render('index');
-  hijackSubmit();
+  render(indexTemplate);
+  redirectToUserShow();
 }
 
 function user_show(req) {
-  request.get('http://api.stackexchange.com/2.1/users/')
+  request.get({
+    url: 'http://api.stackexchange.com/2.1/users/' + req.params.id + '?site=stackoverflow',
+    success: function(data){
+      var user = JSON.parse(data).items[0];
+      render(userShowTemplate, { user: user });
+    }
+  })
 }
 
 function user_questions(req) {
 }
 
-function render(template) {
-  document.body.innerHTML = domify().querySelector('#' + template).innerHTML;
+function render(template, data) {
+  debugger
+  var compiled = _.template(template);
+  document.body.innerHTML = compiled(data);
 }
 
 function domify() {
@@ -39,19 +49,9 @@ function domify() {
   return tempDiv
 }
 
-function hijackSubmit() {
+function redirectToUserShow() {
   document.addEventListener('submit', function(e){
     e.preventDefault();
-    var url = e.target.attributes.action.value + queryString(e.target);
-    page.show(url);
+    page.show("/users/" + e.target.querySelector('input[name="id"]').value);
   })
-}
-
-function queryString(form) {
-  var result = [];
-  [].slice.call(form.querySelectorAll('input')).forEach(function(item) {
-     if (!item.name) return
-     result.push(item.name + "=" + item.value)
-  })
-  return "?" + result.join("&");
 }

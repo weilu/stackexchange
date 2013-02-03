@@ -5,15 +5,16 @@
   "version": "0.0.1",
   "keywords": [],
   "dependencies": {
-    "spini/backbone-router": "*",
-    "visionmedia/superagent": "*",
-    "visionmedia/page.js": "*"
+    "visionmedia/page.js": "*",
+    "pazguille/CORS": "*",
+    "component/underscore": "*"
   },
   "development": {},
   "license": "MIT",
   "scripts": [
     "index.js",
-    "template.js"
+    "templates/index.js",
+    "templates/user_show.js"
   ],
   "styles": [
     "stackexchange.css"

@@ -1,0 +1,21 @@
+{
+  "name": "stackexchange",
+  "repo": "weilu/stackexchange",
+  "description": "Hypermedia API wrapper of stackexchange API",
+  "version": "0.0.1",
+  "keywords": [],
+  "dependencies": {
+    "spini/backbone-router": "*",
+    "visionmedia/superagent": "*",
+    "visionmedia/page.js": "*"
+  },
+  "development": {},
+  "license": "MIT",
+  "scripts": [
+    "index.js",
+    "template.js"
+  ],
+  "styles": [
+    "stackexchange.css"
+  ]
+}

@@ -12,7 +12,7 @@
 </ul>
 <form class="questions filter" action="/users/<%= user_id %>/questions" method="GET">
   <label for="type">Filter by Type:</label>
-  <select name="type">
+  <select name="type" id="type">
     <option value="" <%= type=='' ? "selected" : "" %>>All</option>
     <option value="featured" <%= type=='featured' ? "selected" : "" %>>Featured</option>
     <option value="unaccepted" <%= type=='unaccepted' ? "selected" : "" %>>Unaccepted</option>

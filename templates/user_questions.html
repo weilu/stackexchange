@@ -1,6 +1,6 @@
-<ul>
+<ul class="questions">
   <% _.each(questions, function(question){ %>
-  <li>
+  <li class="question">
     <dl>
       <% _.each(Object.keys(question), function(key){ %>
       <dt><%= key %></dt>
@@ -10,7 +10,7 @@
   </li>
   <% }); %>
 </ul>
-<form class="question-filter" action="/users/<%= user_id %>/questions" method="GET">
+<form class="questions filter" action="/users/<%= user_id %>/questions" method="GET">
   <label for="type">Filter by Type:</label>
   <select name="type">
     <option value="" <%= type=='' ? "selected" : "" %>>All</option>

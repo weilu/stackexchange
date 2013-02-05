@@ -72,7 +72,7 @@ function domify() {
 }
 
 function redirectToUserShow() {
-  var form = document.querySelector('form.user-show');
+  var form = document.querySelector('form.user.show');
   form.addEventListener('submit', function(e){
     e.preventDefault();
     page.show("/users/" + e.target.querySelector('input[name="id"]').value);
@@ -80,7 +80,7 @@ function redirectToUserShow() {
 }
 
 function redirectToUserQuestions() {
-  var form = document.querySelector('form.question-filter');
+  var form = document.querySelector('form.questions.filter');
   form.addEventListener('submit', function(e){
     e.preventDefault();
     page.show(e.target.attributes.action.value + "?type=" + e.target.querySelector('select').value);
